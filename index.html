@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>PanaMentorLabs Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Portal educativo PanaMentorLabs - @Barrigón Teacher White">
+    <meta name="theme-color" content="#ff6f61">
+</head>
+<body>
+
+<button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">🌙</button>
+
+<header>
+    <h1><span class="star-icon">🌟</span> PanaMentorLabs</h1>
+    <p>@Barrigón - Teacher White</p>
+</header>
+
+<div id="homeScreen" class="main-container">
+    <img src="tkl-banner.jpg" class="hero-illustration" alt="TeachKnowLink - Smart Teaching. Real Learning.">
+    
+    <p class="author-credit">By José R White (i&ai)</p>
+    
+    <div class="zone-container">
+        <button class="zone student" id="studentZoneBtn" aria-label="Zona de estudiantes">
+            <span class="zone-icon">👦</span>
+            Student Learning Zone
+        </button>
+        
+        <button class="zone teacher" id="teacherZoneBtn" aria-label="Zona de profesores">
+            <span class="zone-icon">👨‍🏫</span>
+            Teacher Zone
+            <span class="lock-icon">🔐</span>
+        </button>
+    </div>
+</div>
+
+<div id="studentZone" class="hidden">
+    <button class="back-btn" id="backHomeBtn">← Volver al inicio</button>
+    <h2>📚 Apps Educativas</h2>
+    
+    <div class="search-container">
+        <span class="search-icon">🔍</span>
+        <input type="text" class="search-input" id="searchApps" placeholder="Buscar apps...">
+    </div>
+    
+    <div class="category-filters" id="categoryFilters">
+        <button class="category-btn active" data-category="all">Todas</button>
+        <button class="category-btn" data-category="math">Matemáticas</button>
+        <button class="category-btn" data-category="english">Inglés</button>
+        <button class="category-btn" data-category="science">Ciencias</button>
+        <button class="category-btn" data-category="games">Juegos</button>
+    </div>
+    
+    <div class="loading-spinner" id="loadingSpinner"></div>
+    <div id="appsContainer"></div>
+</div>
+
+<div id="adminPanel" class="hidden">
+    <button class="back-btn" id="closeAdminBtn">← Cerrar panel</button>
+    <h2>👨‍🏫 Panel del Docente</h2>
+    
+    <div class="stats-container">
+        <div class="stat-card">
+            <h4 id="totalApps">0</h4>
+            <p>Apps totales</p>
+        </div>
+        <div class="stat-card">
+            <h4 id="totalCategories">0</h4>
+            <p>Categorías</p>
+        </div>
+    </div>
+    
+    <h3>📱 Apps Registradas</h3>
+    <div id="adminAppsList"></div>
+    
+    <div class="add-app-form">
+        <h3>➕ Agregar nueva app</h3>
+        <div class="form-group">
+            <label for="appName">Nombre de la app *</label>
+            <input type="text" id="appName" placeholder="Ej: StudyBuddy" required>
+        </div>
+        <div class="form-group">
+            <label for="appLink">URL completa *</label>
+            <input type="url" id="appLink" placeholder="https://..." required>
+        </div>
+        <div class="form-group">
+            <label for="appDesc">Descripción breve</label>
+            <input type="text" id="appDesc" placeholder="¿Qué hace esta app?">
+        </div>
+        <div class="form-group">
+            <label for="appCategory">Categoría</label>
+            <select id="appCategory">
+                <option value="general">General</option>
+                <option value="math">Matemáticas</option>
+                <option value="english">Inglés</option>
+                <option value="science">Ciencias</option>
+                <option value="games">Juegos Educativos</option>
+                <option value="tools">Herramientas</option>
+            </select>
+        </div>
+        <button id="addAppBtn">Agregar app</button>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

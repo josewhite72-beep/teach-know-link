@@ -1,0 +1,623 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f8f9fa;
+    text-align: center;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background: #ff6f61;
+    color: white;
+    padding: 2rem 1.5rem 3rem;
+    border-radius: 0 0 3rem 3rem;
+    margin-bottom: 0;
+    box-shadow: 0 4px 20px rgba(255, 111, 97, 0.3);
+    position: relative;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-weight: 700;
+}
+
+.star-icon {
+    font-size: 2rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.95;
+    margin-top: 0.5rem;
+    font-weight: 300;
+}
+
+.main-container {
+    flex: 1;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.hero-illustration {
+    max-width: 500px;
+    width: 100%;
+    margin: 1rem 0;
+    border-radius: 2rem;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+}
+
+.hero-illustration svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.author-credit {
+    font-style: italic;
+    color: #555;
+    font-size: 1rem;
+    margin: 0.5rem 0 1rem;
+    font-weight: 500;
+}
+
+.zone-container {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0 1rem;
+}
+
+.zone {
+    width: 100%;
+    padding: 1.5rem 2rem;
+    border-radius: 1.5rem;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 1.4rem;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.zone:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.zone:active {
+    transform: translateY(-1px);
+}
+
+.student {
+    background: linear-gradient(135deg, #2d8a56 0%, #3aa76a 100%);
+}
+
+.student:hover {
+    background: linear-gradient(135deg, #267a4a 0%, #339660 100%);
+}
+
+.teacher {
+    background: linear-gradient(135deg, #c41e3a 0%, #e03e5c 100%);
+}
+
+.teacher:hover {
+    background: linear-gradient(135deg, #a81830 0%, #c9354f 100%);
+}
+
+.zone-icon {
+    font-size: 1.6rem;
+}
+
+.lock-icon {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#studentZone, #adminPanel {
+    max-width: 1000px;
+    margin: 1rem auto;
+    background: white;
+    border-radius: 2rem;
+    padding: 2rem;
+    box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.1);
+    text-align: center;
+    width: 95%;
+}
+
+.back-btn {
+    background: #6c757d;
+    margin-bottom: 1rem;
+}
+
+.back-btn:hover {
+    background: #5a6268;
+}
+
+.search-container {
+    margin: 1.5rem 0;
+    position: relative;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.search-input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 2rem;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #ff6f61;
+    box-shadow: 0 0 0 3px rgba(255, 111, 97, 0.1);
+}
+
+.search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+}
+
+.category-filters {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 1rem 0 2rem;
+}
+
+.category-btn {
+    padding: 0.5rem 1rem;
+    border: 2px solid #e0e0e0;
+    background: white;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+}
+
+.category-btn:hover, .category-btn.active {
+    background: #ff6f61;
+    color: white;
+    border-color: #ff6f61;
+}
+
+#appsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.app-card {
+    background: #f9f9ff;
+    border: 1px solid #e0e0e0;
+    border-radius: 1.2rem;
+    padding: 1.5rem;
+    width: 280px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.app-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+    border-color: #ff6f61;
+}
+
+.app-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ff6f61, #ff8f81);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+}
+
+.app-card:hover::before {
+    transform: scaleX(1);
+}
+
+.app-category {
+    display: inline-block;
+    padding: 0.2rem 0.8rem;
+    background: #e3f2fd;
+    color: #1976d2;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.app-card strong {
+    font-size: 1.3rem;
+    color: #2c3e66;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.app-card small {
+    color: #666;
+    font-size: 0.9rem;
+    display: block;
+    margin: 0.5rem 0;
+    line-height: 1.4;
+}
+
+.app-card a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #ff6f61;
+    background: #fff0ed;
+    padding: 0.6rem 1.2rem;
+    border-radius: 2rem;
+    display: inline-block;
+    margin-top: 0.8rem;
+    transition: all 0.2s;
+}
+
+.app-card a:hover {
+    background: #ff6f61;
+    color: white;
+    transform: scale(1.05);
+}
+
+.loading-spinner {
+    display: none;
+    width: 50px;
+    height: 50px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #ff6f61;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 2rem auto;
+}
+
+.loading-spinner.visible {
+    display: block;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+button {
+    background: #ff6f61;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin: 0.5rem;
+    font-weight: 600;
+}
+
+button:hover {
+    background: #e05a4f;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(224, 90, 79, 0.3);
+}
+
+#adminAppsList {
+    margin: 1.5rem 0;
+    text-align: left;
+    max-height: 400px;
+    overflow-y: auto;
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+}
+
+.admin-app-item {
+    background: #fef7e0;
+    border-left: 4px solid #ff6f61;
+    padding: 1rem;
+    margin: 0.8rem 0;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    transition: all 0.2s;
+}
+
+.admin-app-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.admin-app-info {
+    flex: 1;
+    min-width: 200px;
+}
+
+.admin-app-info strong {
+    font-size: 1.1rem;
+    color: #2c3e66;
+}
+
+.admin-app-info small {
+    display: block;
+    color: #666;
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
+}
+
+.admin-app-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.admin-app-actions button {
+    padding: 0.4rem 1rem;
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.admin-app-actions .edit-btn {
+    background: #ffc107;
+    color: #333;
+}
+
+.admin-app-actions .edit-btn:hover {
+    background: #e0a800;
+}
+
+.admin-app-actions .delete-btn {
+    background: #dc3545;
+}
+
+.admin-app-actions .delete-btn:hover {
+    background: #c82333;
+}
+
+.add-app-form {
+    background: #f8f9fa;
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    text-align: left;
+    border: 2px dashed #dee2e6;
+}
+
+.add-app-form h3 {
+    color: #2c3e66;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.add-app-form label {
+    display: block;
+    margin-bottom: 0.3rem;
+    color: #555;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.add-app-form input, .add-app-form select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 0.8rem;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.add-app-form input:focus, .add-app-form select:focus {
+    outline: none;
+    border-color: #ff6f61;
+    box-shadow: 0 0 0 3px rgba(255, 111, 97, 0.1);
+}
+
+.add-app-form button {
+    width: 100%;
+    background: linear-gradient(135deg, #2d8a56 0%, #3aa76a 100%);
+    margin-top: 0.5rem;
+    padding: 1rem;
+    font-size: 1.1rem;
+}
+
+.add-app-form button:hover {
+    background: linear-gradient(135deg, #267a4a 0%, #339660 100%);
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    text-align: center;
+}
+
+.stat-card h4 {
+    font-size: 2rem;
+    margin-bottom: 0.3rem;
+}
+
+.stat-card p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    font-size: 1.3rem;
+    z-index: 1000;
+    transition: all 0.3s;
+}
+
+.theme-toggle:hover {
+    transform: rotate(20deg) scale(1.1);
+}
+
+body.dark-mode {
+    background: #1a1a2e;
+    color: #eee;
+}
+
+body.dark-mode header {
+    background: #e05a4f;
+}
+
+body.dark-mode #studentZone,
+body.dark-mode #adminPanel {
+    background: #16213e;
+    color: #eee;
+}
+
+body.dark-mode .app-card {
+    background: #0f3460;
+    border-color: #1a1a2e;
+    color: #eee;
+}
+
+body.dark-mode .app-card strong {
+    color: #fff;
+}
+
+body.dark-mode .search-input,
+body.dark-mode .add-app-form input,
+body.dark-mode .add-app-form select {
+    background: #1a1a2e;
+    color: #eee;
+    border-color: #0f3460;
+}
+
+body.dark-mode .category-btn {
+    background: #16213e;
+    color: #eee;
+    border-color: #0f3460;
+}
+
+body.dark-mode .add-app-form {
+    background: #16213e;
+    border-color: #0f3460;
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 1.5rem 1rem 2rem;
+        border-radius: 0 0 2rem 2rem;
+    }
+    
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .zone {
+        font-size: 1.2rem;
+        padding: 1.2rem 1.5rem;
+    }
+    
+    .hero-illustration {
+        max-width: 90%;
+    }
+    
+    .app-card {
+        width: 100%;
+        max-width: 350px;
+    }
+    
+    #studentZone, #adminPanel {
+        padding: 1.5rem 1rem;
+        margin: 0.5rem;
+        width: 98%;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+    
+    .zone {
+        font-size: 1.1rem;
+    }
+    
+    .admin-app-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .admin-app-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
